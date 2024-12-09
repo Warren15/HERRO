@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>S'inscrire</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <p>
+            <label for="username">Nom d'utilisateur</label>
+            <input id="username" type="text" name="username">
+        </p>
+        <p>
+            <label for="password">Mot de passe</label>
+            <input id="password" type="password" name="password">
+        </p>
+
+        <p>
+            <label for="gym">Quelle est votre salle de sport ?</label>
+            <select name="gym" id="gym">
+                <option value="Basic Fit Lyon 1er">Basic Fit Lyon 1er</option>
+                <option value="Appart Fitness Lyon 1er">Appart Fitness Lyon 1er</option>
+                <option value="Keep Cool Lyon Part-Dieu">Keep Cool Lyon Part-Dieu</option>
+            </select>
+        </p>
+
+        <button type="submit">S'inscrire</button>
+    </form>
+
+{% endblock %}

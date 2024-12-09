@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% if user.is_authenticated %}
+        <button onclick="location.href='{% url 'add_exercice' %}'">Ajouter une perf</button>
+        <button onclick="location.href='{% url 'Mes_perfs' %}'">Voir mes perfs</button>
+    {% endif %}
+{% endblock %}

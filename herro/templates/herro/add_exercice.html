@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Ajouter une perf</h1>
+<form method="POST" action="{% url 'ajouter_performance' %}">
+    {% csrf_token %}
+
+    <p>
+        <label for="exercice">Quel exercice ajouter ?</label>
+        <select name="exercice" id="exercice">
+            {% for exercice in exercices %}
+                <option value="{{ exercice.nom }}">{{ exercice.nom }}</option>
+            {% endfor %}
+        </select>
+    </p>
+    <p>
+        <label for="perf_value">Performance :</label>
+        <input type="number" step="0.1" name="perf_value" id="perf_value" required>
+    </p>
+    <p>
+        <label for="public">Rendre public :</label>
+        <input type="checkbox" name="public" id="public">
+    </p>
+    <button type="submit">Ajouter à mes perfs</button>
+</form>
+
+{% endblock %}

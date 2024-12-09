@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>HERRO</title>
+</head>
+<body>
+    
+<a href="{% url 'index' %}">
+    <h1>HERRO</h1>
+</a>
+
+<h2>Le réseau social de la salle de sport</h2>
+
+<form action="{% url 'search_users' %}" method="get">
+    <input type="text" name="q" placeholder="Rechercher un gymbro">
+    <button type="submit">Rechercher</button>
+</form>
+
+{% if user.is_authenticated %}
+    {{ user.username }}
+<a href="{% url 'logout' %}">Se déonnecter</a>
+{% else %}
+    <a href="{% url 'login' %}">Se connecter</a>
+    <a href="{% url 'signup' %}">S'inscrire</a>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+
+</body>
+</html>

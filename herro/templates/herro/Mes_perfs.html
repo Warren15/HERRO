@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1> Mes perfs </h1>
+{% for perf in perfs%}
+    <h2>{{ perf.exercice.nom }}</h2>
+    <img src="{{ perf.exercice.Image.url }}" alt="{{ perf.exercice.nom}}" style="max-width:250px;">
+    <p>Votre perf est de {{ perf.perf_value }} {{ perf.exercice.unité }} !</p>
+{% endfor %}
+
+{% endblock %}

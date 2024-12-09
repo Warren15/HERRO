@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Résultats pour "{{ query }}"</h1>
+    {% if results %}
+        <ul>
+            {% for user in results %}
+                <li>{{ user.username }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>Aucun utilisateur trouvé.</p>
+    {% endif %}
+{% endblock %}
